@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Grades - Instructo</title>
+    <style>
+        /* Previous styles remain the same */
+
+        /* Add icon styles */
+        .grade-header span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Update grade-checkbox style to match design */
+        .grade-checkbox {
+            background: white;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .grade-checkbox input {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select your grades</h1>
+        <p class="subtitle">Select one or more grades you teach to get started</p>
+        
+        <div class="grade-section">
+            <div class="grade-header">
+                <span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 19V5h16v14H4z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Elementary
+                </span>
+            </div>
+            <div class="grade-options">
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="kindergarten"> Kindergarten
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="1st"> 1st Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="2nd"> 2nd Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="3rd"> 3rd Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="4th"> 4th Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="5th"> 5th Grade
+                </label>
+            </div>
+        </div>
+
+        <div class="grade-section">
+            <div class="grade-header">
+                <span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3L3 9v12h18V9l-9-6z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Middle School
+                </span>
+            </div>
+            <div class="grade-options">
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="6th"> 6th Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="7th"> 7th Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="8th"> 8th Grade
+                </label>
+            </div>
+        </div>
+
+        <div class="grade-section">
+            <div class="grade-header">
+                <span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3l9 4.5L12 12 3 7.5 12 3z" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    High School
+                </span>
+            </div>
+            <div class="grade-options">
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="9th"> 9th Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="10th"> 10th Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="11th"> 11th Grade
+                </label>
+                <label class="grade-checkbox">
+                    <input type="checkbox" name="grade" value="12th"> 12th Grade
+                </label>
+            </div>
+        </div>
+        
+        <button class="continue-btn">Continue</button>
+        <a href="#" class="skip-link">I'll do this later</a>
+        
+        <div class="progress-dots">
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+</body>
+</html>
