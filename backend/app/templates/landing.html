@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select your grades</title>
+    <title>Welcome to Instructo</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -11,73 +11,100 @@
             padding: 20px;
             background-color: white;
         }
-        .onboarding {
+        .container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            padding: 40px 20px;
+        }
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
         }
         h1 {
-            font-size: 32px;
+            font-size: 48px;
             color: #1a1a1a;
-            margin-bottom: 8px;
-            text-align: center;
+            margin: 0 0 16px;
+            line-height: 1.2;
         }
         .subtitle {
+            font-size: 20px;
             color: #666;
-            text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .section {
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .section-header {
+        .cta-section {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
+            gap: 16px;
         }
-        .grades-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 15px;
-        }
-        .grade-checkbox {
-            padding: 10px;
-            border: 1px solid #e5e5e5;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-        }
-        .grade-checkbox input[type="checkbox"] {
-            margin-right: 8px;
-        }
-        .continue-btn {
-            display: block;
-            width: 200px;
-            padding: 12px 0;
-            margin: 30px auto 10px;
+        .primary-btn {
+            display: inline-block;
+            padding: 16px 32px;
             background-color: #007AFF;
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
             cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
         }
-        .skip-link {
-            display: block;
-            text-align: center;
+        .primary-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+        .secondary-btn {
             color: #666;
             text-decoration: none;
-            margin-bottom: 30px;
+            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        .secondary-btn:hover {
+            background-color: #f5f5f5;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 80px;
+        }
+        .feature-card {
+            padding: 24px;
+            border-radius: 12px;
+            background-color: #f8f9fa;
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+        }
+        .feature-title {
+            font-size: 20px;
+            color: #1a1a1a;
+            margin: 0 0 8px;
+        }
+        .feature-description {
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
         }
         .progress-dots {
             display: flex;
             justify-content: center;
             gap: 8px;
+            margin-top: 40px;
         }
         .dot {
             width: 8px;
@@ -91,101 +118,49 @@
     </style>
 </head>
 <body>
-    <div class="onboarding">
-        <h1>Select your grades</h1>
-        <p class="subtitle">Select one or more grades you teach to get started</p>
+    <div class="container">
+        <div class="hero-section">
+            <h1>Welcome to Instructo</h1>
+            <p class="subtitle">A purpose-built tool for teachers to create personalized instructional materials, without having to learn prompt engineering</p>
+            <div class="cta-section">
+                <a href="{{ url_for('main.grades') }}" class="primary-btn">Get Started</a>
+                <a href="#learn-more" class="secondary-btn">Learn More</a>
+            </div>
+        </div>
+
+        <div class="features-grid" id="learn-more">
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#007AFF">
+                    <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14l9-5-9-5-9 5 9 5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 21l9-5-9-5-9 5 9 5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3 class="feature-title">Personalized Learning</h3>
+                <p class="feature-description">Create customized materials that adapt to your students' needs and learning styles.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#007AFF">
+                    <path d="M12 8v4l3 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                </svg>
+                <h3 class="feature-title">Time-Saving</h3>
+                <p class="feature-description">Generate high-quality content quickly, allowing you to focus more on teaching.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="#007AFF">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="9" cy="7" r="4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23 21v-2a4 4 0 00-3-3.87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 3.13a4 4 0 010 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3 class="feature-title">Collaborative</h3>
+                <p class="feature-description">Share and collaborate with other teachers to create better learning experiences.</p>
+            </div>
+        </div>
         
-        <div class="section">
-            <div class="section-header">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 19.5v-15A2.5 2.5 0 016.5 2h11A2.5 2.5 0 0120 4.5v15a2.5 2.5 0 01-2.5 2.5h-11A2.5 2.5 0 014 19.5z" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                Elementary
-            </div>
-            <div class="grades-grid">
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="k">
-                    Kindergarten
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="1">
-                    1st Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="2">
-                    2nd Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="3">
-                    3rd Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="4">
-                    4th Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="5">
-                    5th Grade
-                </label>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                Middle School
-            </div>
-            <div class="grades-grid">
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="6">
-                    6th Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="7">
-                    7th Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="8">
-                    8th Grade
-                </label>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="section-header">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                High School
-            </div>
-            <div class="grades-grid">
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="9">
-                    9th Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="10">
-                    10th Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="11">
-                    11th Grade
-                </label>
-                <label class="grade-checkbox">
-                    <input type="checkbox" name="grade" value="12">
-                    12th Grade
-                </label>
-            </div>
-        </div>
-
-        <button class="continue-btn">Continue</button>
-        <a href="#" class="skip-link">I'll do this later</a>
-
         <div class="progress-dots">
-            <span class="dot"></span>
             <span class="dot active"></span>
+            <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
